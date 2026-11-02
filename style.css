@@ -1,0 +1,281 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Sticky Navbar */
+.navbar {
+    background: #172554;
+    color: white;
+    padding: 15px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* Hide Checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Main Content */
+.page-content {
+    min-height: 60vh;
+}
+
+.hero,
+.content-section {
+    text-align: center;
+    padding: 100px 7%;
+}
+
+.hero h1,
+.content-section h1 {
+    font-size: 38px;
+    color: #172554;
+    margin-bottom: 20px;
+}
+
+.hero p,
+.content-section > p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    background: #0284c7;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0369a1;
+}
+
+/* Feature Cards */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+}
+
+.feature-card h2 {
+    color: #0284c7;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    background: #172554;
+    color: white;
+    padding: 55px 7% 0;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+    padding-bottom: 40px;
+}
+
+.footer-column h3 {
+    font-size: 19px;
+    margin-bottom: 18px;
+    color: #38bdf8;
+}
+
+.footer-column p {
+    color: #cbd5e1;
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #38bdf8;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.footer-column .social-links a {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #64748b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.footer-column .social-links a:hover {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: white;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #334155;
+    color: #cbd5e1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar nav {
+        width: 100%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+    }
+
+    .nav-links li {
+        border-top: 1px solid #334155;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 12px 5px;
+    }
+
+    /* Checkbox opens menu */
+    #menu-toggle:checked ~ nav .nav-links {
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    /* Hamburger transforms into X */
+    #menu-toggle:checked + .hamburger span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .hamburger span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Footer becomes one column */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Feature cards become one column */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .content-section {
+        padding: 65px 7%;
+    }
+
+    .hero h1,
+    .content-section h1 {
+        font-size: 29px;
+    }
+}
